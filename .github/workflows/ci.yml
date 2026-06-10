@@ -34,6 +34,6 @@ jobs:
         with:
           go-version: '1.24'
       - name: install calque
-        run: go install github.com/justinstimatze/calque@v0.2.1
+        run: go install github.com/justinstimatze/calque/cmd/calque@v0.1.0
       - name: vocab drift gate
         run: calque vocab-check -exclude 'docs/internal/**' --strict
