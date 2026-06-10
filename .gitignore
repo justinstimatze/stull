@@ -1,0 +1,14 @@
+.env
+.env.local
+
+# Claude Code session-local state (cron locks, etc.) — not project artifacts
+.claude/
+.codex/
+.defn/
+.defn-server/
+.defn-server.pid
+# local MCP server config (machine-specific paths; not a shared artifact)
+.mcp.json
+
+# internal strategy notes — not part of the public repo
+docs/internal/
