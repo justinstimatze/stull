@@ -104,6 +104,7 @@ fails the build, not just the eye.
 
 ```bash
 make check                              # gofmt + vet + test — the CI bar, verbatim
+make vocab                              # calque prose drift gate (needs calque on PATH; also a CI job)
 go run ./cmd/stull sim review-loop      # converges / fail-safe / total
 ```
 

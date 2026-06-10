@@ -5,7 +5,7 @@
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 LDFLAGS := -ldflags "-X main.version=$(VERSION)"
 
-.PHONY: build install test vet fmt check all
+.PHONY: build install test vet fmt check all vocab
 
 all: fmt vet test build
 
@@ -30,3 +30,8 @@ fmt:
 
 # check == the whole green bar, the same one CI enforces.
 check: fmt vet test
+
+# vocab == calque prose drift gate (needs `calque` on PATH; also a separate CI
+# job). Kept OUT of `check` so the core bar stays stdlib-only / dependency-free.
+vocab:
+	calque vocab-check -exclude 'docs/internal/**' --strict

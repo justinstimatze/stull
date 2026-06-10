@@ -25,3 +25,15 @@ jobs:
         run: go test -race ./...
       - name: build
         run: go build ./...
+
+  vocab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+      - name: install calque
+        run: go install github.com/justinstimatze/calque@v0.2.1
+      - name: vocab drift gate
+        run: calque vocab-check -exclude 'docs/internal/**' --strict
